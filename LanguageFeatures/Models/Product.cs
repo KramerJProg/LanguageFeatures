@@ -11,6 +11,8 @@ namespace LanguageFeatures.Models
 
         public decimal? Price { get; set; }
 
+        public Product Related { get; set; }
+
         public static Product[] GetProducts()
         {
             Product kayak = new Product()
@@ -19,13 +21,15 @@ namespace LanguageFeatures.Models
                 Price = 275m
             };
 
-            Product lifeJacket = new Product()
+            Product lifejacket = new Product()
             {
                 Name = "Lifejacket",
                 Price = 48.95m
             };
 
-            return new Product[] { kayak, lifeJacket, null };
+            kayak.Related = lifejacket;
+
+            return new Product[] { kayak, lifejacket, null };
         }
     }
 }
